@@ -1,0 +1,6 @@
+uvicorn 
+asyncio 
+langgraph 
+langchain 
+langchain_communities
+langchain-google-genai

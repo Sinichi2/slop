@@ -1,0 +1,25 @@
+version: 2
+updates:
+
+  # 1. Python (Model services)
+  - package-ecosystem: "pip"
+    directory: "model"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+    labels:
+      - "python"
+      - "model"
+
+  # 2. GitHub Actions (Keep your CI/CD up to date)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+  
+  # # 3. Docker (Model)
+  # - package-ecosystem: "docker"
+  #   directory: "model"
+  #   schedule:
+  #     interval: "daily"
