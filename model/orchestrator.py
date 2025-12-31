@@ -9,9 +9,15 @@ from langchain.agents import create_agent
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph import StateGraph, START, END, MessageState
 from config import Config
+from fastmcp import FastMCP
 import json
 
 config = Config()
+
+
+# Initializing StateGraph
+class State(StateGraph): 
+    pass
 
 #Loading the json file
 with open("context_engineering/orchestrator.json", "r") as f:
