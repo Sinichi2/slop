@@ -1,0 +1,7 @@
+uvicorn 
+asyncio 
+langgraph 
+langchain 
+langchain-google-genai
+dotenv
+icalendar

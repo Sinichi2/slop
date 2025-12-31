@@ -1,12 +1,24 @@
+"""
+    This agent will conduct a hand-off to two other agents, which will be the 
+    sub-agents: 
+        - Calendar creation agent 
+        - Calendar designer agent
+"""
+
 from langchain.agents import create_agent
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langgraph import StateGraph, START, END, MessageState
 from config import Config
-import orchestrator, json
+import json
 
 config = Config()
 
+#Loading the json file
+with open("context_engineering/orchestrator.json", "r") as f:
+    context=json.load(f)
+
 # Initializing Orchestrator
-orchestrator_agent = create_agent(
+aggregator_agent = create_agent(
     ChatGoogleGenerativeAI(
         model=config.GEMINI_MODEL, 
         api_key=config.GEMINI_API_KEY, 
@@ -15,3 +27,5 @@ orchestrator_agent = create_agent(
 )
 
 # 
+async def orchestrator_agent(): 
+    pass
