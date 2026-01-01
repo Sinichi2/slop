@@ -4,4 +4,6 @@ langgraph
 langchain 
 langchain-google-genai
 dotenv
-icalendar
+ics
+langchain_mcp_adapters
+pytest
