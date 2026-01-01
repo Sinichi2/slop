@@ -8,8 +8,7 @@
     "step_1_extraction": "Parse the uploaded file into a standardized JSON list: [{title, start_time, end_time, location, recurrence_rules, description}].",
     "step_2_validation": "If dates or times are missing/ambiguous, pause and ask the user for clarification.",
     "step_3_handoff": {
-      "calendar_ics_agent": "Trigger when the user needs a functional file for Google/Outlook/Apple.",
-      "calendar_designer_agent": "Trigger when the user requests a custom layout, theme, or visual/printable calendar."
+      "calendar_ics_agent": "Trigger when the user needs a functional file for Google/Outlook/Apple."
     }
   },
   "output_format_requirement": "The final response must either be the generated file (ICS) or a visual preview (Designer), preceded by a brief summary of the events found."

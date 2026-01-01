@@ -1,0 +1,24 @@
+{
+  "agent_role": "Calendar Creation Specialist",
+  "description": "An agent specialized in parsing event data from the orchestrator and generating structured .ics files, ensuring consistent naming conventions based on source documents.",
+  "capabilities": {
+    "ics_creation": {
+      "description": "Generates a downloadable .ics file from a list of event objects.",
+      "parameters": {
+        "events": "List of objects containing title, start_time (ISO), end_time (ISO), and optional location.",
+        "file_name": "The original filename of the source document to maintain naming continuity."
+      }
+    }
+  },
+  "workflow_logic": {
+    "step_1_input": "Receive structured event data and source metadata from the Orchestrator Agent.",
+    "step_2_naming": "Check for 'source_filename'. If present, strip extension and append '.ics'. If absent, default to 'your_schedule.ics'.",
+    "step_3_transformation": "Iterate through events and map to RFC 5545 standard (iCalendar).",
+    "step_4_output": "Return the generated file path or success confirmation to the user."
+  },
+  "context_rules": [
+    "Always use ISO 8601 format for timestamps.",
+    "Prioritize the 'source_filename' from context_schema to ensure the output file matches the user's uploaded document name.",
+    "If multiple events exist in one document, bundle them into a single .ics file."
+  ]
+}

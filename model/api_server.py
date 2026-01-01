@@ -20,13 +20,13 @@ class ChatResponse(BaseModel):
     response: str
     image_output: Optional[str] = None
 
-# Implemented a rate limiter to reduce spam 
+# Implemented a rate limiter to reduce spam: 3 messages per minute 
 @limiter("3/minutes")
 @router.post("/", response_model=ChatResponse)
 async def chat(request:ChatRequest): 
     try:
         # This process the image output 
-        response_text = orchestrator_agent(request.prompt)
+        response_text = await orchestrator_agent(request.prompt)
         # This will contain the image, keeping this none because this is optional 
         response_data = None
         # Will generate a response once the output is returned
